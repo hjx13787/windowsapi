@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/.m2/repository/org/eclipse/swt/org.eclipse.swt.win32.win32.x86/3.8/org.eclipse.swt.win32.win32.x86-3.8.jar" sourcepath="C:/Users/Administrator/.m2/repository/org/eclipse/swt/org.eclipse.swt.win32.win32.x86/3.8/org.eclipse.swt.win32.win32.x86-3.8-sources.jar">
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.eclipse.swt"/>
-			<attribute name="maven.artifactId" value="org.eclipse.swt.win32.win32.x86"/>
-			<attribute name="maven.version" value="3.8"/>
-			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/JNative.jar" sourcepath="D:/360安全浏览器下载/JNative_1.4RC3_src.zip"/>
-	<classpathentry kind="lib" path="lib/jna-platform-4.1.0.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

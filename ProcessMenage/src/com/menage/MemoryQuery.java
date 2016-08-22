@@ -338,10 +338,6 @@ public class MemoryQuery {
 	private boolean isRefresh=true;
 
 	private void AddToList(int i, long num) {
-		// MemoryInfo mi=new MemoryInfo();
-		// mi.address=Integer.toHexString(i);
-		// mi.value=num+"";
-		// listSearch.add(mi);
 		listAddress.add(i);
 		listValue.add(num);
 		totalsize++;
