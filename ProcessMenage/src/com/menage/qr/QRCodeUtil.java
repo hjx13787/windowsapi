@@ -259,7 +259,7 @@ public class QRCodeUtil {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String text = "http://www.thinkphp.cn/extend/295.html";
+		String text = "http://www.baidu.com/";
 		QRCodeUtil.encode(text, "D:\\23.bmp", "D:/carpark/Sample Pictures/", true);
 	}
 }
