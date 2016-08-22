@@ -1,8 +1,5 @@
 package com.menage;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -12,7 +9,6 @@ import org.eclipse.swt.widgets.Text;
 import org.xvolks.jnative.exceptions.NativeException;
 import org.xvolks.jnative.misc.POINT;
 import org.xvolks.jnative.misc.basicStructures.DC;
-import org.xvolks.jnative.misc.basicStructures.DWORD;
 import org.xvolks.jnative.misc.basicStructures.HANDLE;
 import org.xvolks.jnative.misc.basicStructures.HWND;
 import org.xvolks.jnative.misc.basicStructures.LPARAM;
@@ -20,16 +16,9 @@ import org.xvolks.jnative.misc.basicStructures.LRECT;
 import org.xvolks.jnative.misc.basicStructures.UINT;
 import org.xvolks.jnative.misc.basicStructures.WPARAM;
 import org.xvolks.jnative.pointers.Pointer;
-import org.xvolks.jnative.util.Callback;
 import org.xvolks.jnative.util.Gdi32;
 import org.xvolks.jnative.util.Kernel32;
 import org.xvolks.jnative.util.User32;
-import org.xvolks.test.callbacks.EnumCallback;
-
-import com.sun.jna.platform.win32.Kernel32Util;
-import com.sun.jna.platform.win32.WinDef.HINSTANCE;
-import com.sun.jna.platform.win32.WinUser;
-import com.sun.jna.platform.win32.WinUser.HOOKPROC;
 
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -40,7 +29,6 @@ import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.PaletteData;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.internal.gdip.ColorPalette;
 import org.eclipse.swt.internal.win32.OS;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Composite;
@@ -221,6 +209,16 @@ public class MainApp {
 			}
 		});
 		button_4.setText("¹Ø±Õ½ø³Ì");
+		
+		Button button_5 = new Button(composite_2, SWT.NONE);
+		button_5.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				MemoryQuery mq=new MemoryQuery();
+				mq.open(handle.getValue());
+			}
+		});
+		button_5.setText("\u5185\u5B58\u4FEE\u6539");
 
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -312,11 +310,8 @@ public class MainApp {
 			if (mouseGetHandle != null && mouseGetHandle.getValue().intValue() == handle.getValue().intValue()) {
 				return;
 			} else {
-				if (nHpen > 0) {
-					System.out.println("Gdi32.DeleteObject(nHpen)");
-					Gdi32.DeleteObject(nHpen);
-				}
 				if (mouseGetHandle != null && hdc != null) {
+					Gdi32.DeleteObject(nHpen);
 					User32.ReleaseDC(mouseGetHandle, hdc);
 					User32.UpdateWindow(mouseGetHandle);
 					System.out.println("User32.ReleaseDC(mouseGetHandle, hdc);User32.UpdateWindow(mouseGetHandle);");
