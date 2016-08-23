@@ -127,7 +127,7 @@ public class QRCodeUtil {
 	public static void encode(String content, String imgPath, String destPath, boolean needCompress) throws Exception {
 		BufferedImage image = QRCodeUtil.createImage(content, imgPath, needCompress);
 		mkdirs(destPath);
-		String file = new Random().nextInt(99999999) + ".jpg";
+		String file = "erweima.jpg";
 		ImageIO.write(image, FORMAT_NAME, new File(destPath + "/" + file));
 	}
 
