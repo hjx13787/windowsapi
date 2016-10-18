@@ -34,6 +34,14 @@
 			<artifactId>javase</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.xvolks</groupId>
+			<artifactId>jnative</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/JNative.jar
+    		</systemPath>
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
