@@ -243,6 +243,7 @@ public class MemoryQuery {
 				Pointer lpNumberOfBytesRead = new Pointer(MemoryBlockFactory.createMemoryBlock(4));
 				Kernel32Utils.ReadProcessMemory(openProcess, lpBaseAddress, lpBuffer2, lpBuffer2.getSize(), lpNumberOfBytesRead);
 				long asLong = lpBuffer2.getAsLong(0);
+//				long asLong=getLong(lpBuffer2.getMemory());
 				if (asLong == searchValue) {
 					lista.add(lpBaseAddress);
 					listv.add(asLong);
@@ -256,6 +257,15 @@ public class MemoryQuery {
 			e.printStackTrace();
 		}
 	}
+	public static long getLong(byte[] bb) { 
+	       return ((((long) bb[ 0] & 0xff) << 56) 
+	               | (((long) bb[ 1] & 0xff) << 48) 
+	               | (((long) bb[ 2] & 0xff) << 40) 
+	               | (((long) bb[ 3] & 0xff) << 32) 
+	               | (((long) bb[ 4] & 0xff) << 24) 
+	               | (((long) bb[ 5] & 0xff) << 16) 
+	               | (((long) bb[ 6] & 0xff) << 8) | (((long) bb[ 7] & 0xff) << 0)); 
+	  } 
 
 	public void refreshSearch() {
 		isRefresh=true;

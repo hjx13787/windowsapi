@@ -11,6 +11,7 @@ public class Kernel32Utils {
 	
 	public static int VirtualQueryEx(int hProcess, int lpAddress,MEMORY_BASIC_INFORMATION lpBuffer) throws NativeException, IllegalAccessException{
 		JNative j = new JNative(Kernel32.DLL_NAME, "VirtualQueryEx");
+		
 		j.setRetVal(Type.INT);
 		j.setParameter(0, hProcess);
 		j.setParameter(1, lpAddress);

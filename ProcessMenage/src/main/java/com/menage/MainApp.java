@@ -413,7 +413,7 @@ public class MainApp {
 	public void setWindowsInfo(String getWindowText, Pointer lpClassName) throws NativeException {
 		txt_title.setText(getWindowText);
 		String hexString = Integer.toHexString(handle.getValue());
-		txt_handle.setText(hexString);
+		txt_handle.setText(hexString.toUpperCase()+"("+handle.getValue()+")");
 		try {
 			text_class.setText(lpClassName.getAsString());
 		} catch (NativeException e) {
